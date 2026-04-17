@@ -49,3 +49,19 @@ WeightLog/
 ## 🔗 Demo
 
 https://hanyiseul.github.io/WeightLog/index.html
+
+## ✅ 기능 상세
+
+### 체중 입력
+- 날짜와 체중(kg)을 입력하면 LocalStorage에 저장
+- 같은 날짜 중복 입력 시 덮어쓰기
+
+### 기록 조회 / 수정 / 삭제
+- 저장된 기록을 날짜 내림차순으로 목록 표시
+- 수정 시 기존 값 입력 폼에 불러오기
+- 삭제 시 확인 없이 즉시 제거
+
+### BMI 계산
+- 키(cm) 최초 1회 입력, LocalStorage 저장
+- 체중 입력 시 BMI 자동 계산 및 상태 표시
+  - 저체중 / 정상 / 과체중 / 비만
