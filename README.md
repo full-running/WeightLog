@@ -48,7 +48,6 @@ WeightLog/
 
 ## 🔗 Demo
 
-https://hanyiseul.github.io/WeightLog/index.html
 
 ## ✅ 기능 상세
 
