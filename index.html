@@ -35,6 +35,19 @@
         <input type="number" id="height-input" placeholder="170" />
       </div>
 
+      <!-- 쿠키 동의 선택 -->
+      <div id="consent-wrap">
+        <p>기본 정보를 저장하는 방식을 선택해주세요.</p>
+        <label>
+          <input type="radio" name="consent" value="cookie" />
+          쿠키에 저장 (브라우저를 닫아도 유지)
+        </label>
+        <label>
+          <input type="radio" name="consent" value="session" />
+          세션에 저장 (브라우저를 닫으면 삭제)
+        </label>
+      </div>
+
       <button id="setup-save-btn">시작하기</button>
     </section>
 
