@@ -16,17 +16,13 @@ const initializeApp = () => {
   const userInfo = loadUserInfo();
 
   if (userInfo === null) {
-    // 기본정보 없으면 setup 화면 표시
     showSetupSection();
   } else {
-    // 기본정보 있으면 메인 화면 바로 표시
     showMainSection();
     renderRecordList(loadAllRecords(), userInfo.heightCm);
   }
 
-  // date-input 기본값을 오늘 날짜로 세팅
   document.getElementById("date-input").value = getTodayDateString();
-
   bindEvents();
 };
 
@@ -35,17 +31,12 @@ const initializeApp = () => {
 // =====================
 
 const bindEvents = () => {
-  // 기본정보 저장 버튼
   document
     .getElementById("setup-save-btn")
     .addEventListener("click", handleSetupSave);
-
-  // 체중 기록 추가/수정 버튼
   document
     .getElementById("weight-save-btn")
     .addEventListener("click", handleWeightSave);
-
-  // 기록 목록 수정/삭제 — 이벤트 위임으로 처리
   document
     .getElementById("weight-list")
     .addEventListener("click", handleRecordAction);
@@ -55,10 +46,13 @@ const bindEvents = () => {
 // 핸들러
 // =====================
 
-// 기본정보 저장
+// 기본정보 저장 — 동의 방식에 따라 cookie / session 분기
 const handleSetupSave = () => {
   const selectedGender = document.querySelector("input[name='gender']:checked");
   const heightInput = document.getElementById("height-input").value;
+  const selectedConsent = document.querySelector(
+    "input[name='consent']:checked",
+  );
 
   if (selectedGender === null) {
     alert("성별을 선택해주세요.");
@@ -70,12 +64,17 @@ const handleSetupSave = () => {
     return;
   }
 
+  if (selectedConsent === null) {
+    alert("정보 저장 방식을 선택해주세요.");
+    return;
+  }
+
   const userInfo = {
     gender: selectedGender.value,
     heightCm: parseFloat(heightInput),
   };
 
-  saveUserInfo(userInfo);
+  saveUserInfo(userInfo, selectedConsent.value);
   showMainSection();
   renderRecordList(loadAllRecords(), userInfo.heightCm);
 };
