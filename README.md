@@ -55,7 +55,7 @@ WeightLog/
 
 ## 🔗 Demo
 
-https://full-running.github.io/WeightLog/
+https://full-running.github.io/BodyLog/
 
 ## ✅ 기능 상세
 
