@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SitGuard</title>
+
+    <!-- 스타일 -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS 모듈 로드 순서: storage → timer → app -->
+    <script src="js/storage.js" defer></script>
+    <script src="js/timer.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <main id="main-section">
+
+      <header>
+        <h1>🪑 SitGuard</h1>
+        <p id="today-date"></p>
+      </header>
+
+      <!-- 타이머 섹션 -->
+      <section id="timer-section">
+        <div id="timer-display">
+          <span id="timer-minutes">00</span>
+          <span class="timer-colon">:</span>
+          <span id="timer-seconds">00</span>
+        </div>
+        <p id="timer-status">앉기 전에 시작 버튼을 눌러주세요</p>
+        <div id="timer-controls">
+          <button id="start-btn">시작</button>
+          <button id="stop-btn" disabled>정지</button>
+          <button id="reset-btn" disabled>리셋</button>
+        </div>
+      </section>
+
+      <!-- 경고 배너 (30분 초과 시 표시) -->
+      <section id="warning-section" class="hidden">
+        <p>⚠️ 30분 이상 앉아 있어요! 잠깐 일어나세요.</p>
+      </section>
+
+      <!-- 오늘 기록 섹션 -->
+      <section id="record-section">
+        <h2>오늘 기록</h2>
+        <div id="summary">
+          <div class="summary-item">
+            <span class="summary-label">총 앉은 시간</span>
+            <span id="total-time" class="summary-value">0분</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">세션 횟수</span>
+            <span id="session-count" class="summary-value">0회</span>
+          </div>
+        </div>
+        <ul id="session-list">
+          <!-- storage에서 동적으로 채움 -->
+        </ul>
+      </section>
+
+    </main>
+  </body>
+</html>
